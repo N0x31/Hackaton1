@@ -3,4 +3,7 @@
     <string name="password">Password</string>
     <string name="pseudo">Pseudo</string>
     <string name="connexion">Valider</string>
+    <string name="error_fill">Remplissez les champs</string>
+    <string name="error_password">Mauvais password ou pseudo déja pris</string>
+    <string name="created_user">Bienvenue</string>
 </resources>

@@ -28,8 +28,6 @@ public class ConnexionActivity extends AppCompatActivity {
 
     final String userName = "NameKey";
     final String userPassword = "PasswordKey";
-    // Sound
-    // MediaPlayer mMediaPlayer;
     private boolean auth = false;
     private String mUserId = "UserKey";
     private String mEncrypt = "encrypt";
@@ -96,29 +94,8 @@ public class ConnexionActivity extends AppCompatActivity {
                                         editor.putString(userPassword, userPasswordContent);
                                         editor.putString("mUserId", mUserId);
                                         editor.apply();
+                                        startActivity(new Intent(ConnexionActivity.this, MainActivity.class));
 
-                                        // If user is known : if he has no quest => LobbyActivity; if he has => PlayerActivity
-                                        DatabaseReference db1 = FirebaseDatabase.getInstance().getReference("User");
-                                        DatabaseReference db2 = db1.child(mUserId).child("user_quest");
-                                        db2.addListenerForSingleValueEvent(new ValueEventListener() {
-                                            @Override
-                                            public void onDataChange(DataSnapshot dataSnapshot) {
-                                                String questOrNot = dataSnapshot.getValue(String.class);
-                                                if (questOrNot.equals("Pas de qûete pour l'instant")) {
-                                                    // Direct to Lobby if user is known & does not have quest
-                                                    Intent intent = new Intent(getApplicationContext(), LobbyActivity.class);
-                                                    startActivity(intent);
-                                                } else {
-                                                    // Direct to his quest if user is known & has a quest
-                                                    Intent intent = new Intent(getApplicationContext(), PlayerActivity.class);
-                                                    startActivity(intent);
-                                                }
-                                            }
-
-                                            @Override
-                                            public void onCancelled(DatabaseError databaseError) {
-                                            }
-                                        });
                                     } else {
                                         // Si le mot de passe ou le pseudo ne concordent pas
                                         Toast.makeText(getApplicationContext(), R.string.error_password, Toast.LENGTH_SHORT).show();
@@ -129,17 +106,11 @@ public class ConnexionActivity extends AppCompatActivity {
                             }
 
                             // Utilisateur nouveau : le compte n'existe pas, on le créer !
-                            String questContent = "Pas de qûete pour l'instant";
-                            String challengeContent = "Pas de défi pour l'instant";
-                            User user = new User(userNameContent, userPasswordContent, questContent, challengeContent, score);
+                            User user = new User(userNameContent, userPasswordContent);
                             user.setUser_name(userNameContent);
                             user.setUser_password(mEncrypt(userPasswordContent, "AES"));
-                            user.setUser_quest(questContent);
-                            user.setUser_indice("false");
-                            user.setUser_challenge(challengeContent);
-                            user.setUser_createdquestID("null");
-                            user.setScore(0);
                             String userId = refUser.push().getKey();
+
                             refUser.child(userId).setValue(user);
 
                             // La clé de l'utilisateur qu'on va utiliser partout dans l'application.
@@ -152,7 +123,7 @@ public class ConnexionActivity extends AppCompatActivity {
                             editor.putString("mUserId", userId);
                             editor.apply();
                             Toast.makeText(getApplicationContext(), R.string.created_user, Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), RulesActivity.class));
+                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         }
 
                         // Encryptage du mot de passe
@@ -179,17 +150,4 @@ public class ConnexionActivity extends AppCompatActivity {
         });
 
     }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        mMediaPlayer.stop();
-//        mMediaPlayer.release();
-//    }
-//   @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        mMediaPlayer.stop();
-//        mMediaPlayer.release();
-//    }
 }
