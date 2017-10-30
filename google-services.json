@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "556073417003",
+    "firebase_url": "https://hackaton1-9bf24.firebaseio.com",
+    "project_id": "hackaton1-9bf24",
+    "storage_bucket": "hackaton1-9bf24.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556073417003:android:c242ac3a8827aa18",
+        "android_client_info": {
+          "package_name": "fr.wcs.hackaton1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556073417003-8tv2l1oft890ki4rsqharmnvhgecu6qg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.wcs.hackaton1",
+            "certificate_hash": "8fa637f387ef38afc11519478298ec391a057332"
+          }
+        },
+        {
+          "client_id": "556073417003-pr48jjok7u9ndqc30rrgjs281e0hqope.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "fr.wcs.hackaton1",
+            "certificate_hash": "378c47cdc0a94c66d2471fbe2a4a9580e163fabe"
+          }
+        },
+        {
+          "client_id": "556073417003-2ekqn4d26u8kngkt4s977r8aracnsalg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPpTbCFE0b4JJDpWQRxPphaMWK3OzJj3w"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556073417003-2ekqn4d26u8kngkt4s977r8aracnsalg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
