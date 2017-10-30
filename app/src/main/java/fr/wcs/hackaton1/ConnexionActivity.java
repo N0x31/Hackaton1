@@ -94,7 +94,7 @@ public class ConnexionActivity extends AppCompatActivity {
                                         editor.putString(userPassword, userPasswordContent);
                                         editor.putString("mUserId", mUserId);
                                         editor.apply();
-                                        startActivity(new Intent(ConnexionActivity.this, MainActivity.class));
+                                        startActivity(new Intent(ConnexionActivity.this, Main2Activity.class));
 
                                     } else {
                                         // Si le mot de passe ou le pseudo ne concordent pas
